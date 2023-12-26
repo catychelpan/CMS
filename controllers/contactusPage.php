@@ -1,7 +1,6 @@
 <?php
 
-class ContactController
-{
+class ContactController extends MainController {
     function defaultAction()
     {
         include 'views/contact-us.html';
@@ -16,13 +15,5 @@ class ContactController
         include 'views/contact-us-thankyou.html';
     }
 
-    function runAction($actionName)
-    {
-        $actionName .= 'Action';
-        if (method_exists($this, $actionName)) {
-            $this->$actionName();
-        } else {
-            include 'views/status-pages/error-page.html';
-        }
-    }
+   
 }
