@@ -8,7 +8,7 @@ class AboutUsController extends MainController {
             $variables['title'] = 'About Us page title';
             $variables['content'] = 'Welcome to our About Us Page';
     
-            $template = new Template();
+            $template = new Template('default');
             $template->view('static-page', $variables);
         }
     

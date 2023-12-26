@@ -5,7 +5,11 @@ class ContactController extends MainController {
 
     function runBeforeAction(){
         if($_SESSION['has_submitted_the_form'] ?? 0==1) {
-            include 'views/contact/contact-us-submitted-before.html';
+            $variables['title'] = 'You have already submitted the form.';
+            $variables['content'] = 'Please, be patient as we process your message.';
+        
+            $template = new Template('default');
+            $template->view('static-page', $variables);
             return false;
         }
         return true;
@@ -17,7 +21,7 @@ class ContactController extends MainController {
         $variables['title'] = 'Contact Us Page';
         $variables['content'] = 'Welcome to our Contact Us Page';
     
-        $template = new Template();
+        $template = new Template('default');
         $template->view('contact/contact-us', $variables);
         
     }
@@ -30,7 +34,13 @@ class ContactController extends MainController {
 
         $_SESSION['has_submitted_the_form'] = 1;
 
-        include 'views/contact/contact-us-thankyou.html';
+        $variables['title'] = 'Thank you for contacting us.';
+        $variables['content'] = 'We will get back to you soon.';
+    
+        $template = new Template('default');
+        $template->view('static-page', $variables);
+
+       
     }
 
    
