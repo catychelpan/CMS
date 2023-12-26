@@ -43,12 +43,6 @@
         user-select: none;
     }
 
-    .btn-block{
-      width:100%;
-      margin-bottom: 50px;
-      margin-top: 30px;
-    }
-
     @media (min-width: 768px) {
         .bd-placeholder-img-lg {
             font-size: 3.5rem;
@@ -80,6 +74,11 @@
         z-index: 2;
         height: 2.75rem;
         overflow-y: hidden;
+    }
+
+    .btn-block {
+        margin-top: 30px;
+        width: 100%;
     }
 
     .nav-scroller .nav {
@@ -117,89 +116,35 @@
     .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
     }
+
+    .container {
+        margin-top: 140px;
+    }
     </style>
 
 
+    <!-- Custom styles for this template -->
     <link href="heroes.css" rel="stylesheet">
 </head>
 
 <body>
 
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Fixed navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./aboutus.php">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./contactus.php">Contact Us</a>
-                    </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
+    <?php include 'views/layout/navigation.html'; ?>
 
 
-        <div class="px-4 py-5 my-5 text-center">
-
-            <h1 class="display-5 fw-bold text-body-emphasis">Contact Us</h1>
-          
-        </div>
+    <main class="container" role="main">
 
 
-        <main role="main" class="container">
-          <form action="index.php" method="'POST" class="form-signin">
+        <?php include 'views/' . $template .  '.php'; ?>
 
 
-            <input type="hidden" name="section" value="contactus"/>
-            <input type="hidden" name="action" value="submitForm"/>
-
-            <div class="text-center mb-4">
-              
-              <h1 class="h3 mb-3 font-weight-normal">Contact Form</h1>
-              
-            </div>
-          
-            <div class="form-label-group">
-
-              <label for="inputEmail">Email address</label>
-              <input type="email" id="inputEmail" name="email" value="" class="form-control" placeholder="Email address" required autofocus>
-              
-            </div>
-          
-            <div class="form-label-group">
-              <label for="comment">Message</label>
-              <textarea id="comment" class="form-control" name="comment"></textarea>
-              
-            </div>
-          
-           
-
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Send</button>
-          
-          </form>
-        </main><!-- /.container -->
-
-        <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
-
-
-       
+    </main>
 
 </body>
+
+<script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+</script>
+
 
 </html>
