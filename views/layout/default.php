@@ -129,13 +129,13 @@
 
 <body>
 
-    <?php include 'views/layout/navigation.html'; ?>
+    <?php include VIEW_PATH . 'layout/navigation.html'; ?>
 
 
     <main class="container" role="main">
 
 
-        <?php include 'views/' . $template .  '.php'; ?>
+        <?php include VIEW_PATH  . $template .  '.php'; ?>
 
 
     </main>

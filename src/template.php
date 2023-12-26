@@ -6,7 +6,7 @@ class Template {
 
         extract($variables);
 
-        include 'views/layout/default.php';
+        include VIEW_PATH . 'layout/default.php';
 
         
 
