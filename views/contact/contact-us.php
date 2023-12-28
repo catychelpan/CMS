@@ -6,8 +6,8 @@
 
     <div class="text-center mb-4">
 
-        <h1 class="h3 mb-3 font-weight-normal"> <?php echo $title ?> </h1>
-        <p> <?php echo $content ?> </p>
+        <h1 class="h3 mb-3 font-weight-normal"> <?php echo $pageObj->title ?> </h1>
+        <p> <?php echo $pageObj->content ?> </p>
 
 
 
