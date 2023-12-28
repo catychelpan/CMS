@@ -134,7 +134,7 @@
     <main class="container" role="main">
 
 
-        <?php include VIEW_PATH  . $template .  '.php'; ?>
+        <?php include MODULES_PATH  . $template .  '.php'; ?>
 
 
     </main>

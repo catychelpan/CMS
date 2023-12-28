@@ -5,9 +5,11 @@
 class Router extends Entity{
 
     public function __construct($dbc) {
-        $this->dbc = $dbc;
+        
+        parent::__construct($dbc, 'routes');
+    }
 
-        $this->table_name = 'routes';
+    protected function initFields() {
 
         $this->fields = [
             'id', 
@@ -17,8 +19,8 @@ class Router extends Entity{
             'normal_url'
         ];
 
-
     }
+
 
 
 }
