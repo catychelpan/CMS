@@ -2,6 +2,7 @@
 
 class MainController {
 
+    protected $entity_id;
 
     function runAction($actionName)
     {
@@ -19,6 +20,12 @@ class MainController {
         } else {
             include 'views/status-pages/error-page.html';
         }
+    }
+
+    function setEntityId($entity_id) {
+
+        $this->entity_id = $entity_id;
+
     }
 
 }

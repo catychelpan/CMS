@@ -8,30 +8,34 @@ define ('VIEW_PATH', ROOT_PATH . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPAR
 require_once ROOT_PATH .'src/MainController.php';
 require_once ROOT_PATH . 'src/Template.php';
 require_once ROOT_PATH . 'src/DatabaseConnection.php';
+require_once ROOT_PATH . 'src/Entity.php';
+require_once ROOT_PATH . 'src/Router.php';
 require_once ROOT_PATH . 'models/Page.php';
 
 DatabaseConnection::connect('localhost', 'cmsdatabase', 'root' , '8wF(DdCmzG3cY.ez');
 
+//Routing
+
+$section = $_GET['seo_name'] ?? 'home';
+
+$dbh = DatabaseConnection::getInstance();
+$dbc = $dbh->getConnection();
+
+$router = new Router($dbc); 
+$router->findBy('normal_url', $section);
+
+$action = $router->action != '' ? $router->action : 'default';
+
+$moduleName = ucfirst($router->module) . 'Controller';
 
 
 
-$section = $_GET['section'] ?? $_POST['action'] ?? 'home';
-$action = $_GET['action'] ?? $_POST['action'] ?? 'default';
+if(file_exists(ROOT_PATH . 'controllers/' .$moduleName. '.php')) {
 
+    include ROOT_PATH . 'controllers/' .$moduleName. '.php';
 
-if ($section == 'aboutus') {
+    $controller = new $moduleName();
+    $controller->setEntityId($router->entity_id);
+    $controller->runAction($action);
 
-    include ROOT_PATH . 'controllers/AboutUsPageController.php';
-    $aboutController = new AboutUsPageController();
-    $aboutController->runAction($action);
-} else if ($section == 'contactus') {
-
-    include ROOT_PATH . 'controllers/ContactUsPageController.php';
-    $contactController = new ContactController();
-    $contactController->runAction($action);
-} else {
-
-    include ROOT_PATH . 'controllers/HomePageController.php';
-    $homeController = new HomePageController();
-    $homeController->runAction($action);
 }
