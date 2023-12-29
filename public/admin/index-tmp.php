@@ -24,5 +24,3 @@ $user_obj->findBy('username', 'admin');
 
 $auth_obj = new Auth();
 $user_obj = $auth_obj->changeUserPassword($user_obj,'TopSecret');
-
-var_dump($user_obj);

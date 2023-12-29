@@ -25,9 +25,7 @@ class Auth  {
 
     function changeUserPassword($user_obj, $new_password) {
 
-        
 
-        
         $user_obj->password = password_hash($new_password, PASSWORD_DEFAULT);
        
         return $user_obj;

@@ -130,6 +130,12 @@
                 <label for="floatingPassword">Password</label>
             </div>
 
+            <div class="text-danger">
+                <?= $_SESSION['validation']['error'] ?? ''?>
+            </div>
+
+
+
             <div class="form-check text-start my-3">
                 <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">

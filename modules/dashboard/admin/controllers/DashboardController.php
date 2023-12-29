@@ -40,6 +40,7 @@ class DashboardController extends MainController {
             $username = $_POST['username'] ?? '';
             $password = $_POST['password'] ?? '';
 
+
             $auth = new Auth();
 
             if ($auth->checkLogin($username, $password)) {
@@ -48,12 +49,17 @@ class DashboardController extends MainController {
                 header('Location: /CMS/public/admin/');
                 
                 exit();
+            } else {
+                $_SESSION['validation']['error'] = "Username or password isn't correct.";
             }
 
             
         }
 
+
         include VIEW_PATH . 'login.php';
+
+        unset($_SESSION['validation']['error']);
 
         
     }

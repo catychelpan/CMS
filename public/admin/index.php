@@ -16,6 +16,7 @@ require_once ROOT_PATH . 'src/Entity.php';
 require_once ROOT_PATH . 'src/Router.php';
 require_once MODULES_PATH . 'page/models/Page.php';
 
+
 DatabaseConnection::connect('localhost', 'cmsdatabase', 'root' , '8wF(DdCmzG3cY.ez');
 
 
