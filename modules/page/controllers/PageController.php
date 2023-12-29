@@ -10,10 +10,10 @@ class PageController extends MainController {
             $dbh = DatabaseConnection::getInstance();
             $dbc = $dbh->getConnection();
 
-            $pageObj = new Page($dbc);
-            $pageObj->findBy('id', $this->entity_id);
+            $page_obj = new Page($dbc);
+            $page_obj->findBy('id', $this->entity_id);
 
-            $variables['pageObj'] = $pageObj;
+            $variables['pageObj'] = $page_obj;
     
             $template = new Template('default');
             $template->view('page/views/static-page', $variables);

@@ -23,8 +23,12 @@ abstract class Entity {
         $statement->execute(['value' => $field_value]);
         $database_data = $statement->fetch();
 
-        $this->setValues($database_data);
 
+        if ($database_data) {
+
+            $this->setValues($database_data);
+
+        }
 
     }
 

@@ -4,7 +4,7 @@ class MainController {
 
     protected $entity_id;
 
-    function runAction($actionName)
+    function runAction($action_name)
     {
         
         if(method_exists($this,'runBeforeAction')) {
@@ -14,9 +14,9 @@ class MainController {
             }
         }
 
-        $actionName .= 'Action';
-        if(method_exists($this, $actionName)) {
-            $this->$actionName();
+        $action_name .= 'Action';
+        if(method_exists($this, $action_name)) {
+            $this->$action_name();
         } else {
             include 'views/status-pages/error-page.html';
         }
