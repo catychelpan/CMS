@@ -33,6 +33,8 @@ class PageController extends MainController{
 
         $page_handler = new Page($dbc);
         $pages = $page_handler->findAll();
+
+        $variables['pages'] = $pages;
       
         $this->template->view('page/admin/views/page-list', $variables);
         

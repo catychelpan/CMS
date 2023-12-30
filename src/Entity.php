@@ -8,6 +8,7 @@ abstract class Entity {
 
     abstract protected function initFields();
 
+
     protected function __construct($dbc, $table_name) {
 
         $this->dbc = $dbc;
@@ -26,7 +27,7 @@ abstract class Entity {
 
         if ($database_data) {
 
-            $this->setValues($database_data);
+            $this->setValues($this, $database_data);
 
         }
 
@@ -34,27 +35,43 @@ abstract class Entity {
 
     public function findAll() {
 
+        $results = [];
+
         $sql = "SELECT * FROM " . $this->table_name;
         $statement = $this->dbc->prepare($sql);
-        $statement->execute(['value' => $field_value]);
+        $statement->execute();
+        
         $database_data = $statement->fetchAll();
 
 
         if ($database_data) {
 
-            $this->setValues($database_data);
+            $class_name = static::class;
+
+            foreach ($database_data as $object_data) {
+
+                $object = new $class_name($this->dbc);
+                $object = $this->setValues($object, $object_data);
+                $results[] = $object;
+
+
+            }
 
         }
+
+        return $results;
 
 
     }
 
-    public function setValues($values) {
+    public function setValues($object, $values) {
 
-        foreach ($this->fields as $field_name) { 
-            $this->$field_name = $values[$field_name];
+        foreach ($object->fields as $field_name) { 
+            $object->$field_name = $values[$field_name];
 
         } 
+
+        return $object;
 
     }
 
