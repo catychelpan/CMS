@@ -12,7 +12,7 @@ class Template {
 
         extract($variables);
 
-        include VIEW_PATH . 'layout/' . $this->layout . '.php';
+        include VIEW_PATH . $this->layout . '.php';
 
         
 

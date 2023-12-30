@@ -32,6 +32,23 @@ abstract class Entity {
 
     }
 
+    public function findAll() {
+
+        $sql = "SELECT * FROM " . $this->table_name;
+        $statement = $this->dbc->prepare($sql);
+        $statement->execute(['value' => $field_value]);
+        $database_data = $statement->fetchAll();
+
+
+        if ($database_data) {
+
+            $this->setValues($database_data);
+
+        }
+
+
+    }
+
     public function setValues($values) {
 
         foreach ($this->fields as $field_name) { 

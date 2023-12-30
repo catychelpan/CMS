@@ -30,6 +30,15 @@ if ($module=='dashboard') {
     include MODULES_PATH . 'dashboard/admin/controllers/DashboardController.php';
     
     $dashController = new DashboardController();
+    $dashController->template = new Template('admin/layout/default');
     $dashController->runAction($action);
     
-} 
+} elseif ($module == 'page') {
+
+    include MODULES_PATH . 'page/admin/controllers/PageController.php';
+    
+    $pageController = new PageController();
+    $pageController->template = new Template('admin/layout/default');
+    $pageController->runAction($action);
+
+}

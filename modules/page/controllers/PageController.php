@@ -13,10 +13,10 @@ class PageController extends MainController {
             $page_obj = new Page($dbc);
             $page_obj->findBy('id', $this->entity_id);
 
-            $variables['pageObj'] = $page_obj;
+            $variables['page_obj'] = $page_obj;
     
-            $template = new Template('default');
-            $template->view('page/views/static-page', $variables);
+            
+            $this->template->view('page/views/static-page', $variables);
         }
 
        

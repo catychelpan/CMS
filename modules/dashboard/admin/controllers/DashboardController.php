@@ -26,8 +26,14 @@ class DashboardController extends MainController {
     }
 
     function defaultAction() {
+
+        $variables = [];
       
-        echo 'Welcome to the Administration';
+        header('Location: /CMS/public/admin/index.php?module=page');
+
+
+        exit();
+        
     }
 
 

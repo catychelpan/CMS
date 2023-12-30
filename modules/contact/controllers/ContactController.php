@@ -13,8 +13,8 @@ class ContactController extends MainController {
 
             $variables['pageObj'] = $pageObj;
         
-            $template = new Template('default');
-            $template->view('page/views/static-page', $variables);
+            
+            $this->template->view('page/views/static-page', $variables);
             return false;
         }
         return true;
@@ -31,8 +31,8 @@ class ContactController extends MainController {
 
         $variables['pageObj'] = $pageObj;
     
-        $template = new Template('default');
-        $template->view('contact/views/contact-us', $variables);
+        
+        $this->template->view('contact/views/contact-us', $variables);
         
     }
 
@@ -49,8 +49,8 @@ class ContactController extends MainController {
 
         $variables['pageObj'] = $pageObj;
     
-        $template = new Template('default');
-        $template->view('page/views/static-page', $variables);
+        
+        $this->template->view('page/views/static-page', $variables);
 
        
     }

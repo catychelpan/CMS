@@ -38,6 +38,7 @@ if(file_exists($controller_file)) {
     include $controller_file;
 
     $controller = new $moduleName();
+    $controller->template = new Template('layout/default');
     $controller->setEntityId($router->entity_id);
     $controller->runAction($action);
 
