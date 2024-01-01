@@ -1,9 +1,13 @@
 <?php
 
+namespace src;
 class MainController {
 
     protected $entity_id;
     public $template;
+    public $dbc;
+
+
 
     function runAction($action_name)
     {

@@ -69,7 +69,8 @@
                                      </i>
                                      View
                                  </a>
-                                 <a class="btn btn-info btn-sm" href="#">
+                                 <a class="btn btn-info btn-sm"
+                                     href="/CMS/public/admin/index.php?module=page&action=editPage&amp;id=<?= $page->id ?>">
                                      <i class="fas fa-pencil-alt">
                                      </i>
                                      Edit

@@ -1,5 +1,9 @@
 <?php
 
+namespace modules\page\admin\controllers;
+use src\MainController;
+use modules\page\models\Page;
+
 class PageController extends MainController{
 
     function runBeforeAction() {
@@ -28,16 +32,37 @@ class PageController extends MainController{
 
         $variables = [];
 
-        $dbh = DatabaseConnection::getInstance();
-        $dbc = $dbh->getConnection();
-
-        $page_handler = new Page($dbc);
+        $page_handler = new Page($this->dbc);
         $pages = $page_handler->findAll();
 
         $variables['pages'] = $pages;
       
         $this->template->view('page/admin/views/page-list', $variables);
         
+    }
+
+
+    function editPageAction() {
+
+        $page_id = $_GET['id'];
+
+        $variables = [];
+
+        
+
+        if($_POST['action'] ?? false) {
+
+            var_dump($_POST);
+
+        }
+
+        $page = new Page($this->dbc);
+        $page->findBy('id', $page_id);
+
+        $variables['page'] = $page;
+      
+        $this->template->view('page/admin/views/page-edit', $variables);
+
     }
 
 }

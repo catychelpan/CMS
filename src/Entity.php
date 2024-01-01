@@ -1,5 +1,6 @@
 <?php
 
+namespace src;
 abstract class Entity {
 
     protected $dbc;
@@ -19,30 +20,18 @@ abstract class Entity {
 
     public function findBy($field_name, $field_value) {
 
-        $sql = "SELECT * FROM " . $this->table_name . " WHERE " . $field_name . " = :value"  ;
-        $statement = $this->dbc->prepare($sql);
-        $statement->execute(['value' => $field_value]);
-        $database_data = $statement->fetch();
+        $result =  $this->find($field_name, $field_value);
 
-
-        if ($database_data) {
-
-            $this->setValues($this, $database_data);
-
+        if ($result && $result[0]) {
+            $this-> setValues($this, $result[0]);
         }
-
     }
 
     public function findAll() {
-
+        
         $results = [];
 
-        $sql = "SELECT * FROM " . $this->table_name;
-        $statement = $this->dbc->prepare($sql);
-        $statement->execute();
-        
-        $database_data = $statement->fetchAll();
-
+        $database_data = $this->find();
 
         if ($database_data) {
 
@@ -61,6 +50,30 @@ abstract class Entity {
 
         return $results;
 
+
+    }
+
+    private function find($field_name = '', $field_value = '') {
+
+        $results = [];
+        $prepared_fields = [];
+
+
+        $sql = "SELECT * FROM " . $this->table_name;
+
+        if ($field_name) {
+            $sql .= " WHERE " . $field_name . " = :value";
+            $prepared_fields = ['value' => $field_value];   
+        }
+        $statement = $this->dbc->prepare($sql);
+        $statement->execute($prepared_fields);
+        
+        $database_data = $statement->fetchAll();
+
+
+       
+
+        return $database_data;
 
     }
 

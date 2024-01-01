@@ -202,7 +202,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/CMS/public/admin/index.php?module=page" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Pages
@@ -217,8 +217,17 @@
             <!-- /.sidebar -->
         </aside>
 
+        <div class="content-wrapper">
 
-        <?php include MODULES_PATH . $template . '.php'?>
+            <section class="content">
+
+                <?php include MODULES_PATH . $template . '.php'?>
+
+            </section>
+
+        </div>
+
+
 
         <footer class="main-footer">
             <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>

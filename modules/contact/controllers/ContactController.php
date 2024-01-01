@@ -1,11 +1,13 @@
 <?php
 
-class ContactController extends MainController {
+use modules\page\models\Page;
+
+class ContactController extends src\MainController {
 
 
     function runBeforeAction(){
         if($_SESSION['has_submitted_the_form'] ?? 0==1) {
-            $dbh = DatabaseConnection::getInstance();
+            $dbh = src\DatabaseConnection::getInstance();
             $dbc = $dbh->getConnection();
 
             $pageObj = new Page($dbc);
@@ -23,7 +25,7 @@ class ContactController extends MainController {
     function defaultAction() {
 
         
-        $dbh = DatabaseConnection::getInstance();
+        $dbh = src\DatabaseConnection::getInstance();
         $dbc = $dbh->getConnection();
 
         $pageObj = new Page($dbc);
@@ -41,7 +43,7 @@ class ContactController extends MainController {
 
         $_SESSION['has_submitted_the_form'] = 1;
 
-        $dbh = DatabaseConnection::getInstance();
+        $dbh = src\DatabaseConnection::getInstance();
         $dbc = $dbh->getConnection();
 
         $pageObj = new Page($dbc);

@@ -1,13 +1,13 @@
 <?php
 
 
-class PageController extends MainController {
+class PageController extends src\MainController {
 
     
 
         function defaultAction() {
       
-            $dbh = DatabaseConnection::getInstance();
+            $dbh = src\DatabaseConnection::getInstance();
             $dbc = $dbh->getConnection();
 
             $page_obj = new Page($dbc);

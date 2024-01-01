@@ -1,5 +1,7 @@
 <?php
 
+namespace src;
+
 final class DatabaseConnection {
 
     private static $instance = null;
@@ -27,7 +29,7 @@ final class DatabaseConnection {
 
     public static function connect($host, $dbName, $user, $password) {
 
-        self::$connection = new PDO("mysql:host=$host;port=5040;dbname=$dbName", $user, $password);
+        self::$connection = new \PDO("mysql:host=$host;port=5040;dbname=$dbName", $user, $password);
     }
 
     public static function getConnection() {

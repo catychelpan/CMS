@@ -1,6 +1,6 @@
 <?php
 
-class DashboardController extends MainController {
+class DashboardController extends src\MainController {
 
 
     function runBeforeAction() {

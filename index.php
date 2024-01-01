@@ -2,6 +2,10 @@
 
 session_start();
 
+use src\DatabaseConnection;
+use src\MainController;
+use src\Template;
+
 define ('ROOT_PATH', dirname(__FILE__) . DIRECTORY_SEPARATOR);
 define ('VIEW_PATH', ROOT_PATH . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
 define ('MODULES_PATH', ROOT_PATH . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR);
