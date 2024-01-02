@@ -10,10 +10,13 @@ class ContactController extends src\MainController {
             $dbh = src\DatabaseConnection::getInstance();
             $dbc = $dbh->getConnection();
 
-            $pageObj = new Page($dbc);
-            $pageObj->findBy('id', $this->entity_id);
+            $page_obj = new Page($dbc);
 
-            $variables['pageObj'] = $pageObj;
+            $this->setEntityId(3);
+            
+            $page_obj->findBy('id', $this->entity_id);
+
+            $variables['page_obj'] = $page_obj;
         
             
             $this->template->view('page/views/static-page', $variables);
@@ -28,10 +31,10 @@ class ContactController extends src\MainController {
         $dbh = src\DatabaseConnection::getInstance();
         $dbc = $dbh->getConnection();
 
-        $pageObj = new Page($dbc);
-        $pageObj->findBy('id', $this->entity_id);
+        $page_obj = new Page($dbc);
+        $page_obj->findBy('id', $this->entity_id);
 
-        $variables['pageObj'] = $pageObj;
+        $variables['page_obj'] = $page_obj;
     
         
         $this->template->view('contact/views/contact-us', $variables);
@@ -46,10 +49,12 @@ class ContactController extends src\MainController {
         $dbh = src\DatabaseConnection::getInstance();
         $dbc = $dbh->getConnection();
 
-        $pageObj = new Page($dbc);
-        $pageObj->findBy('id', $this->entity_id);
+        $page_obj = new Page($dbc);
+        
+        $this->setEntityId(4);
+        $page_obj->findBy('id', $this->entity_id);
 
-        $variables['pageObj'] = $pageObj;
+        $variables['page_obj'] = $page_obj;
     
         
         $this->template->view('page/views/static-page', $variables);

@@ -66,4 +66,29 @@ class PageController extends MainController{
 
     }
 
+    function deletePageAction() {
+
+        $page_id = $_GET['id'];
+
+        $page = new Page($this->dbc);
+        $page->findBy('id', $page_id);
+    
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_delete'])) {
+            
+            $page->deleteBy($page_id);
+    
+            header('Location: /CMS/public/admin/index.php');
+            exit;
+        }
+    
+        
+        $variables['page'] = $page;
+        $this->template->view('page/admin/views/page-delete-confirm', $variables);
+        exit;
+
+       
+
+    }
+
 }

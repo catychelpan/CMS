@@ -107,6 +107,15 @@ abstract class Entity {
 
     }
 
+    public function deleteBy($page_id) {
+
+        $sql = "DELETE FROM " . $this->table_name . " WHERE id = :id";
+
+        $statement = $this->dbc->prepare($sql);
+        $statement->execute(['id' => $page_id]);
+
+    }
+
     public function save() {
 
         $field_bindings = [];
