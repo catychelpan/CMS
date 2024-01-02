@@ -1,5 +1,6 @@
 <?php
 
+use src\Auth;
 class DashboardController extends src\MainController {
 
 

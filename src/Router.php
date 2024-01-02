@@ -1,5 +1,7 @@
 <?php
 
+use src\Entity;
+
 //an active record - makes objects based on the data in database
 //ORM in essence
 class Router extends Entity{

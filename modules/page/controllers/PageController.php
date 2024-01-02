@@ -1,6 +1,6 @@
 <?php
 
-
+use modules\page\models\Page;
 class PageController extends src\MainController {
 
     

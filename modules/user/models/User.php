@@ -1,7 +1,7 @@
 <?php
 
-require_once ROOT_PATH . 'src/Entity.php';
-
+namespace modules\user\models;
+use src\Entity;
 
 class User extends Entity {
 
