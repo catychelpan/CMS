@@ -1,5 +1,10 @@
 <?php
 
+
+use src\Auth;
+use src\DatabaseConnection;
+use modules\user\models\User;
+
 session_start();
 
 define ('ROOT_PATH', dirname(__FILE__) . DIRECTORY_SEPARATOR .'..\..'. DIRECTORY_SEPARATOR);
@@ -24,3 +29,5 @@ $user_obj->findBy('username', 'admin');
 
 $auth_obj = new Auth();
 $user_obj = $auth_obj->changeUserPassword($user_obj,'TopSecret');
+
+var_dump($user_obj);
