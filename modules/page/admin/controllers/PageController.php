@@ -48,16 +48,15 @@ class PageController extends MainController{
 
         $variables = [];
 
-        
+        $page = new Page($this->dbc);
+        $page->findBy('id', $page_id);
 
         if($_POST['action'] ?? false) {
 
-            var_dump($_POST);
+            $page->setValues($_POST);
+            $page->save();
 
         }
-
-        $page = new Page($this->dbc);
-        $page->findBy('id', $page_id);
 
         $variables['page'] = $page;
       

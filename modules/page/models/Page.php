@@ -16,10 +16,10 @@ class Page extends \src\Entity {
     protected function initFields() {
 
         $this->fields = [
-            'id', 
             'title' ,
             'content' 
         ];
+       
 
     }
 
