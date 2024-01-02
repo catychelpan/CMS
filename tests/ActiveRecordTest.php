@@ -1,8 +1,9 @@
 <?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 
-require_once 'C:/xampp1/htdocs/CMS/src/Entity.php';
-require_once 'C:/xampp1/htdocs/CMS/source/modules/page/models/Page.php';
+
+use modules\page\models\Page;
+use src\Entity;
 
 
 class FakeStatement {
@@ -39,6 +40,31 @@ final class ActiveRecordTest extends TestCase
         $page = new Page($dbc); 
         $page->findBy('id', 12);
         $this->assertEquals(12, $page->id);
+        
+    }
+
+    public function testSave(): void
+    {
+        $mock_database = $this->getMockBuilder(FakeDatabaseConnection::class)->enableProxyingToOriginalMethods()->getMock();
+        
+        $mock_database->expects($this->exactly(2))
+                ->method('prepare')
+                ->with(
+                    $this->logicalOr(
+                        $this->equalTo('SELECT * FROM pages WHERE id = :value'),
+                        $this->equalTo('UPDATE pagescSET title = :title, content = :content WHERE id = :id')
+                    )
+                );
+                    
+
+       
+        $page = new Page($mock_database); 
+        $page->findBy('id', 12);
+
+        $page->title = 'new title'; 
+        $page->save();
+
+        $this->assertEquals('new title', $page->title);
         
     }
 

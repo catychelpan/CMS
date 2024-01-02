@@ -25,6 +25,8 @@ spl_autoload_register(function ($class_name) {
 
 
 
+
+
 DatabaseConnection::connect('localhost', 'cmsdatabase', 'root' , '8wF(DdCmzG3cY.ez');
 
 

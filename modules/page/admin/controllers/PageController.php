@@ -1,6 +1,8 @@
 <?php
 
-namespace modules\page\admin\controllers;
+
+namespace modules\page\admin\controllers; 
+
 use src\MainController;
 use modules\page\models\Page;
 

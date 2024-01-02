@@ -64,11 +64,7 @@
                              </td>
 
                              <td class="project-actions text-right">
-                                 <a class="btn btn-primary btn-sm" href="#">
-                                     <i class="fas fa-folder">
-                                     </i>
-                                     View
-                                 </a>
+
                                  <a class="btn btn-info btn-sm"
                                      href="/CMS/public/admin/index.php?module=page&action=editPage&amp;id=<?= $page->id ?>">
                                      <i class="fas fa-pencil-alt">
